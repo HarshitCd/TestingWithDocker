@@ -1,0 +1,17 @@
+FROM debian:11
+
+WORKDIR /app/
+RUN apt-get update 
+RUN apt install wget build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libsqlite3-dev libreadline-dev libffi-dev curl libbz2-dev pkg-config make -y
+RUN wget https://www.python.org/ftp/python/3.8.13/Python-3.8.13.tgz
+RUN tar -xvf Python-3.8.13.tgz
+
+WORKDIR /app/Python-3.8.13/
+RUN ./configure --enable-optimizations --enable-shared
+RUN make install
+RUN ldconfig
+
+WORKDIR /app/
+COPY ./test.py /app/
+
+ENTRYPOINT ["python3.8", "test.py"]

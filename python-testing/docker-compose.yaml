@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  test_python3.12:
+    build:
+      context: .
+      dockerfile: ./dockerfile_py3.12
+    environment:
+      - PYTHON_VERSION=3.12
+  test_python3.11:
+    build:
+      context: .
+      dockerfile: ./dockerfile_py3.11
+    environment:
+      - PYTHON_VERSION=3.11
+  test_python3.10:
+    build:
+      context: .
+      dockerfile: ./dockerfile_py3.10
+    environment:
+      - PYTHON_VERSION=3.10
+  test_python3.9:
+    build:
+      context: .
+      dockerfile: ./dockerfile_py3.9
+    environment:
+      - PYTHON_VERSION=3.9
+  test_python3.8:
+    build:
+      context: .
+      dockerfile: ./dockerfile_py3.8
+    environment:
+      - PYTHON_VERSION=3.8
+  test_python3.7:
+    build:
+      context: .
+      dockerfile: ./dockerfile_py3.7
+    environment:
+      - PYTHON_VERSION=3.7
